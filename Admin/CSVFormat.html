@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>CSV File Format</title>
+  <meta name="description" content="Documents CSV file format for upload.">
+  <meta name="author" content="CCantrell">
+  <link rel="shortcut icon" type="image/png" href="http://www.castletonumc-artandcraftfair.org/images/circle_favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../css/CUMCAandCstyles.css">
+</head>
+
+<body>
+	<div class="heading">
+	   <a href="Admin.html"><img srcset="../images/AdminHEADING_sm.png 550w, ../images/AdminHEADING_sm.png 1125w, ../images/AdminHEADING.png 2250w" src="../images/AdminHEADING.png" alt="Admin Header" />
+	   </a>
+	</div>
+	<div class="content">
+		<ul class="header">
+		  <li class="header"><a class="header" href="../mission.html">Our Mission</a></li>
+		  <li class="header"><a class="header" href="../attend.html">Attend</a></li>
+		  <li class="header"><a class="header" href="../vendor.html">Participate</a></li>
+		  <li class="header"><a class="header" href="../contact.html">Contact</a></li>
+		</ul>
+		<h1>CSV File Format for Upload</h1>
+		<p>This page documents the CSV file format needed to upload into the CUMC Art and Craft Fair database. CSV is a plain text file format that can be written out from nearly any spreadsheet program. (If you have questions, you can email <a href="mailto:charles@castletonumc-artandcraftfair.org">Charles</a>.)</p>
+		<p>Each field must be enclosed in double quotes ("). Each field must be separated from the other fields by a semicolon (;). (Open Office and Microsoft Excel can be set to save the CSV file this way, automatically.</p>
+		<p>The first line of the file MUST BE the header. The values in each column should be ALL UPPER CASE. The values must also correspond to the correct column names. The columns may be in any order, however, the column names must be correct.Data lines follow this line.</p>
+		<p>If the file has a VENDOR_ID column, then the file will update each vendor record. If there is no VENDOR_ID column, a new vendor will be inserted for each record.</p>
+		<p>The names of the columns, and their meanings, are:</p>
+		<table width='100%'>
+			<tr><th>VENDOR_ID</th>
+				<th>YEAR</th>
+				<th>ACCEPTED</th>
+				<th>ZONE</th>
+				<th>LOCATION</th>
+				<th>LNAME</th>
+				<th>FNAME</th>
+				<th>COMPANY</th>
+				<th>EMAIL</th>
+				<th>STREET2</th>
+				<th>STREET2</th>
+				<th>CITY</th>
+				<th>STATE</th>
+				<th>ZIP</th>
+				<th>PHONE1</th>
+				<th>MOBILE1</th>
+				<th>PHONE2</th>
+				<th>MOBILE2</th>
+				<th>CATEGORY</th>
+				<th>ADDLINFO</th>
+				<th>FACEBOOK</th>
+				<th>WEBSITE</th>
+				<th>ELECTRIC</th>
+				<th>WALL</th>
+				<th>TABLETYPE</th>
+				<th>IMAGERELEASE</th>
+				<th>REQUESTS</th>
+			</tr>
+			<tr>
+				<th>If this column is absent from the file, each record will create a new vendor record in the database. If the column is present, each vendor record will be updated.</th>
+				<th>If defined, the vendor's YEAR field will be set.</th>
+				<th>If "yes", the vendor's ACCEPTED field will be set to TRUE, otherwise set FALSE</th>
+				<th>If defined, the vendor will be assigned to the zone and slot location, if possible.</th>
+				<th></th>
+				<th>Last Name of vendor.</th>
+				<th>First Name of vendor.</th>
+				<th>Company of vendor.</th>
+				<th>name@domain</th>
+				<th>Street Address</th>
+				<th>Suite or PO Box</th>
+				<th>City</th>
+				<th>State - two characters, please</th>
+				<th>ZIP</th>
+				<th>10 digits</th>
+				<th>yes/no - the phone is a mobile</th>
+				<th>10 digits</th>
+				<th>yes/no</th>
+				<th>Textiles, Jewelry, Woodwork, Leather, Ceramic, Paper, Personal, Home, Food, Misc</th>
+				<th>Additional text information.</th>
+				<th>Facebook ID</th>
+				<th>Website URL</th>			
+				<th>yes/no - vendor needs electricity</th>
+				<th>yes/no - vendor would like wall space</th>
+				<th>"none", 6, or 8</th>
+				<th>yes/no - the vendor agrees to allow their picture to be used for publicity.</th>
+				<th>Any requests vendor may have made.</th>
+			</tr>
+		</table>
+		<p>An example record for a new vendor might look like this:</p>
+		<pre>,,,Charles,Cantrell,7036 Bexley,,Indianapolis,IN,46256,7657029242,yes,,,chcantre@gmail.com,Woodwork,Kitchen Utensils,no,no,6,yes,chcantre,http://wildcat-studios.com</pre>
+		<p>There would be one line in the file similar to this for each vendor being uploaded into the database.</p>
+	</div>
+</body>
+</html>

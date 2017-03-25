@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Contact Fair Coordinators</title>
+  <meta name="description" content="Contact Information for the Castleton Art &amp; Craft Fair Coorinators">
+  <meta name="author" content="CCantrell">
+  <link rel="stylesheet" type="text/css" href="css/CUMCAandCstyles.css">
+  <link rel="shortcut icon" type="image/png" href="http://www.castletonumc-artandcraftfair.org/images/circle_favicon.png" />
+
+  <script>
+		function _(el){
+			return document.getElementById(el);
+		}
+		function submitForm(){
+			var ajax = new XMLHttpRequest();
+			ajax.addEventListener("load", completeHandler, false);
+
+			var phone   = _("phone").value;
+			var eddress = _("email").value;
+			if ((phone.length == 0) && (eddress.length == 0)) {
+				_("phonelable").innerHTML = "<strong>Phone: one or the </strong>";
+				_("emaillable").innerHTML = "<strong>Email: other is needed.</strong>";
+			} else {
+				_("phonelable").innerHTML = "Phone: ";
+				_("emaillable").innerHTML = "Email: ";
+				var form = _('contact');
+				var formdata = new FormData(form);
+				ajax.open("POST", "code/Contact.php");
+				ajax.send(formdata);
+			}
+		}
+		function completeHandler(event){
+			document.title = "Thank You";
+			document.getElementById("Contents").innerHTML = event.target.responseText;
+		}
+
+	</script>
+</head>
+
+<body>
+	<div class="heading">
+	   <a href="index.html"><img srcset="images/WebsiteHEADING_sm.png 550w, images/WebsiteHEADING_sm.png 1125w, images/WebsiteHEADING.png 2250w" src="images/WebsiteHEADING.png" alt="CUMC Art and Craft Web Header" />
+	   </a>
+	</div>
+	<div class="content">
+		<ul class="header">
+		  <li class="header"><a class="header" href="mission.html">Our Mission</a></li>
+		  <li class="header"><a class="header" href="attend.html">Attend</a></li>
+		  <li class="header"><a class="header" href="vendor.html">Participate</a></li>
+		  <li class="header"><a class="header" href="">Contact</a></li>
+		</ul>
+		<h1>Contact the Coordinators</h1>
+		<p>The Coordinators for this year's fair are Marret and Natalie.</p>
+		<p>If you would like to contact them, you can submit the form below and they will be back in touch with you shortly. You must submit either a phone or an email, please, so the Coordinator can get back to you.</p>
+		<p>You may also submit an <a href="vendor.html">application</a>.
+		</p>
+		<div id="Contents">
+			<form class="center" id="contact" name="contact" method="post">
+				<table id="contacttable">
+					<tr><td>Vendor ID: (if you have one)</td><td><input id="vendorid" name="vendorid" type="text"/></td></tr>
+					<tr><td>Name:</td><td><input name="name" type="text"/></td></tr>
+					<tr><td id='phonelable'>Phone:</td><td><input id="phone" name="phone" type="text"/></td></tr>
+					<tr><td id='emaillable'>Email:</td><td><input id="email" name="email" type="text"/></td></tr>
+					<tr><td>Message:</td><td><textarea name="message" rows="10" cols="60"></textarea></td></tr>
+					<tr><td colspan="2"><input type="button" value="Contact Coordinators" onclick="submitForm()"></td></tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

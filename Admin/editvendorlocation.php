@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Assign Location</title>
+  <meta name="description" content="Assign Vendor Location">
+  <meta name="author" content="CCantrell">
+  <link rel="shortcut icon" type="image/png" href="http://www.castletonumc-artandcraftfair.org/images/circle_favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../css/CUMCAandCstyles.css">
+</head>
+
+<body>
+	<div class="heading">
+	   <a href="Admin.html"><img srcset="../images/AdminHEADING_sm.png 550w, ../images/AdminHEADING_sm.png 1125w, ../images/AdminHEADING.png 2250w" src="../images/AdminHEADING.png" alt="Admin Header" />
+	   </a>
+	</div>
+	<div class="content">
+		<ul class="header">
+		  <li class="header"><a class="header" href="../mission.html">Our Mission</a></li>
+		  <li class="header"><a class="header" href="../attend.html">Attend</a></li>
+		  <li class="header"><a class="header" href="../vendor.html">Participate</a></li>
+		  <li class="header"><a class="header" href="../contact.html">Contact</a></li>
+		</ul>
+		<h1>Assign Vendor Location</h1>
+		<p>Enter the vendor zone and spot in the form below to assign the vendor location.</p>
+		<p>You must enter the Vendor ID to identify the vendor being assigned. (As a check, you must also enter the vendor's last name.)</p>
+		<p>If the zone and spot are already assigned to another vendor, you will get an error. You must clear the previous assignment before continuing.</p>
+		<p>To clear a Vendor's assigned location, enter "clear" into the Zone field and submit. Clearing a vendor's assigned location will also clear their "Accepted" field and the Fair Year field. However, assigning a new location will automatically "accept" them again.</p>
+		<form name="vendorinfo" action="../Admin/AssignLocation.php" method="POST">
+			<input type="hidden" name="check_submit" value="1" />
+			<table>
+				<?php 
+				$vendorid = $_GET['vid']; $lname = $_GET['lname']; $zone = $_GET['zone']; $spot = $_GET['spot'];
+				$table = <<<TABLE
+				<tr><td>Vendor ID:</td><td><input type="text" name="vendorid" value="$vendorid"></td></tr>
+				<tr><td>Last name:</td><td><input type="text" name="lname" value="$lname"></td></tr>
+				<tr><td>Zone:</td><td><input type="text" name="zone" value="$zone"></td></tr>
+				<tr><td>Spot:</td><td><input type="text" name="location" value="$spot"></td></tr>
+				<tr><td><input type="submit" value="Submit"></td><td><input type="reset" value="Reset"></td></tr>
+TABLE;
+				echo $table;	
+				?>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

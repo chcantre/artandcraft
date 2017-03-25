@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Clear All Assigned Locations</title>
+  <meta name="description" content="Clear All Assigned Vendor Locations">
+  <meta name="author" content="CCantrell">
+  <link rel="shortcut icon" type="image/png" href="http://www.castletonumc-artandcraftfair.org/images/circle_favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../css/CUMCAandCstyles.css">
+  <script>
+  	function _(el){
+			return document.getElementById(el);
+	}
+
+  	function clearLocations() {
+  		var year = _('year').value;
+  		var ok;
+  		if (confirm("You are about to clear all vendor locations for " + year) == true) {
+  			ok = "ok";
+  			// Call php to clear all assigned locations for the given year.
+  			var form = _('clearlocations');
+			var formdata = new FormData(form);
+			var ajax = new XMLHttpRequest();
+			ajax.addEventListener("load", completeHandler, false);
+			ajax.addEventListener("error", errorHandler, false);
+			ajax.addEventListener("abort", abortHandler, false);
+			ajax.open("POST", "../Admin/ClearAllLocations.php");
+			ajax.send(formdata);
+  		} else {
+  			ok = "Operation Cancelled.";
+  			alert(ok);
+  		}
+  	}
+	function completeHandler(event){
+		document.title = "Assignments Cleared";
+		document.getElementById("Results").innerHTML = event.target.responseText;
+	}
+	function errorHandler(event){
+		_("Results").innerHTML = "Clearing Assignments Failed";
+	}
+	function abortHandler(event){
+		_("Results").innerHTML = "Clearing Assignments Aborted";
+	}
+  </script>
+</head>
+
+<body>
+	<div class="heading">
+	   <a href="Admin.html"><img srcset="../images/AdminHEADING_sm.png 550w, ../images/AdminHEADING_sm.png 1125w, ../images/AdminHEADING.png 2250w" src="../images/AdminHEADING.png" alt="Admin Header" />
+	   </a>
+	</div>
+	<div class="content">
+		<ul class="header">
+		  <li class="header"><a class="header" href="../mission.html">Our Mission</a></li>
+		  <li class="header"><a class="header" href="../attend.html">Attend</a></li>
+		  <li class="header"><a class="header" href="../vendor.html">Participate</a></li>
+		  <li class="header"><a class="header" href="../contact.html">Contact</a></li>
+		</ul>
+		<h1>Clear All Assigned Vendor Locations</h1>
+		<p>Executing this form will clear the assigned location in all vendor records for the specified year.</p>
+
+		<form name="clearlocations" id="clearlocations" method="POST">
+			<input type="hidden" name="check_submit" value="1" />
+			<table>
+				<tr><td>Year:</td><td><input type="text" name="year" id="year"></td></tr>
+				<tr"><td colspan='2'><input type="button" value="Submit" onclick="clearLocations()"></td></tr>
+			</table>
+		</form>
+		<div id="Results"></div>
+	</div>
+</body>
+</html>

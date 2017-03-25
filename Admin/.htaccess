@@ -1,0 +1,13 @@
+AuthType Basic
+AuthName "Art and Craft Fair Admin"
+AuthUserFile /var/chroot/home/content/97/8897897/html/artandcraftfair/Admin/.htpasswd
+Require valid-user
+
+#Auth_MYSQLhost: artcraftfair.db.8897897.hostedresource.com
+#Auth_MYSQLusername: artcraftfair
+#Auth_MYSQLpassword: AR74ndCr4f7!
+#Auth_MYSQLdatabase: artcraftfair
+#Auth_MYSQLpwd_table: coordinators
+#Auth_MYSQLuid_field: username
+#Auth_MYSQLpwd_field: password
+#Auth_MYSQL_EncryptedPasswords: off

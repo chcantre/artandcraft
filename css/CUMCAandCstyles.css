@@ -1,0 +1,42 @@
+/* h1{font-family: "Myriad Pro", Zephyr, san-serif;} */
+h1{font-family: "Ultimate-Regular";}
+hr{border: 10px solid #000;}
+p.heading{font-family: "Myriad Pro", Zephyr, san-serif;} 
+div.content{font-family: Verdana, san-serif;}
+
+ul.header{list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333;}
+li.header{float: left;}
+li a.header{display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;}
+
+li a:hover{background-color: #111;}
+
+/* Table Formatting */
+tr:nth-child(even) {background-color: #f2f2f2}
+th, td{padding: 10px; font-family: Verdana, san-serif; text-align: left; font-size: small; border: 1px solid black;}
+
+/* Class Formatting */
+.center{width: 75%; margin: auto;}
+.fullcenter{width: 90%; margin: auto;}
+.wrapright{float: right; padding: 10px 10px 10px 20px}
+.wrapleft{float: left; padding: 10px 20px 10px 10px;}
+
+/* ID Formatting */
+#progress p
+{
+	display: block;
+	width: 240px;
+	padding: 2px 5px;
+	margin: 2px 0;
+	border: 1px inset #446;
+	border-radius: 5px;
+}
+
+#progress p.success
+{
+	background: #0c0 none 0 0 no-repeat;
+}
+
+#progress p.failed
+{
+	background: #c00 none 0 0 no-repeat;
+}
